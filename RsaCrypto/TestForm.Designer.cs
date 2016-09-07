@@ -48,6 +48,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtIndividualId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnGetAllOfficership = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGetPublicKey
@@ -183,9 +184,9 @@
             // 
             // btnGetPositionHeld
             // 
-            this.btnGetPositionHeld.Location = new System.Drawing.Point(10, 231);
+            this.btnGetPositionHeld.Location = new System.Drawing.Point(167, 231);
             this.btnGetPositionHeld.Name = "btnGetPositionHeld";
-            this.btnGetPositionHeld.Size = new System.Drawing.Size(299, 23);
+            this.btnGetPositionHeld.Size = new System.Drawing.Size(142, 23);
             this.btnGetPositionHeld.TabIndex = 29;
             this.btnGetPositionHeld.Text = "Get My Position Held";
             this.btnGetPositionHeld.UseVisualStyleBackColor = true;
@@ -227,11 +228,22 @@
             this.label3.TabIndex = 32;
             this.label3.Text = "Ind. Id";
             // 
+            // btnGetAllOfficership
+            // 
+            this.btnGetAllOfficership.Location = new System.Drawing.Point(11, 231);
+            this.btnGetAllOfficership.Name = "btnGetAllOfficership";
+            this.btnGetAllOfficership.Size = new System.Drawing.Size(149, 23);
+            this.btnGetAllOfficership.TabIndex = 33;
+            this.btnGetAllOfficership.Text = "Get All Officership";
+            this.btnGetAllOfficership.UseVisualStyleBackColor = true;
+            this.btnGetAllOfficership.Click += new System.EventHandler(this.btnGetAllOfficership_Click);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 372);
+            this.Controls.Add(this.btnGetAllOfficership);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnUpdateIndividual);
             this.Controls.Add(this.btnGetPositionHeld);
@@ -281,5 +293,6 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.TextBox txtIndividualId;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnGetAllOfficership;
     }
 }

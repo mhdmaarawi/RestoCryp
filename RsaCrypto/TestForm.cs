@@ -91,11 +91,20 @@ namespace RsaCrypto
 
         private async void btnGetObjectList_Click(object sender, EventArgs e)
         {
-            string tblName = this.txtObjectName.Text;
-            var list = await ListObject.GetList(tblName);
-            foreach (var item in list)
+            try
             {
-                this.txtResult.Text += item.ToString() + "\r\n";
+                string tblName = this.txtObjectName.Text;
+                var list = await ListObject.GetList(tblName);
+                foreach (var item in list)
+                {
+                    this.txtResult.Text += item.ToString() + "\r\n";
+                }
+            }
+            catch (Exception ex)
+            {
+                this.txtResult.Text += "---------------------------------------------------------\r\n";
+                this.txtResult.Text += ex.ToString() + "\r\n" ;
+                this.txtResult.Text += "---------------------------------------------------------\r\n";
             }
         }
 
@@ -162,6 +171,15 @@ namespace RsaCrypto
             }
             else
                 this.txtResult.Text += "RegisterPage_ErrorServerConnection" + "\r\n";
+        }
+
+        private async void btnGetAllOfficership_Click(object sender, EventArgs e)
+        {
+            var posList = await OfficershipClass.GetList();
+            foreach (var item in posList)
+            {
+                this.txtResult.Text += item.ToString() + "\r\n";
+            }
         }
     }
 }

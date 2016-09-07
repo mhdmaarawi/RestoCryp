@@ -111,8 +111,6 @@ namespace RsaCrypto.Classes
                 }
                 if (encryptionType == EncryptionType.AES)
                     uriParamDic.Add("token", GlobalClass.UserToken.Value);
-                //Commented by ghaith 2016-08-15 16:24:00
-                //param = "param=" + encryptedParameter;
                 
                 string uriParam = "";
                 string contentParam = "";
