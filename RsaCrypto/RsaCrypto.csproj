@@ -72,7 +72,6 @@
     <Compile Include="Classes\GlobalClass.cs" />
     <Compile Include="Classes\GlobalObjects.cs" />
     <Compile Include="Classes\Individual.cs" />
-    <Compile Include="Classes\IndividualClass.cs" />
     <Compile Include="Classes\ListObject.cs" />
     <Compile Include="Classes\LoginClass.cs" />
     <Compile Include="Classes\MyRSAParameters.cs" />

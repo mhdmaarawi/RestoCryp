@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RsaCrypto.Classes
 {
-    class ListObject
+    public class ListObject
     {
         public int Id { get; set; }
         public string Name { get; set; }

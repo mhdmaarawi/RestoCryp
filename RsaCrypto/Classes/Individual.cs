@@ -14,37 +14,31 @@ namespace RsaCrypto.Classes
         public int Id { get; set; }
         public string Code { get; set; }
         public string TaxNumber { get; set; }
-        public string Civility { get; set; }
+        public ListObject Civility { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MaidenName { get; set; }
         public string UsualName { get; set; }
         public DateTime? Birthdate { get; set; }
         public string BirthPlace { get; set; }
-        public string BirthCountry { get; set; }
-        public int? CitizenshipId { get; set; }
-        public string Citizenship { get; set; }
-        public List<int?> LanguageIds { get; set; }
-        public string LanguageNames { get; set; }
-        public int? CountryId { get; set; }
-        public string Country { get; set; }
+        public ListObject BirthCountry { get; set; }
+        public ListObject Citizenship { get; set; }
+        public List<ListObject> Languages { get; set; }
+        public ListObject Country { get; set; }
         public string Job { get; set; }
-        public int? ContractTypeId { get; set; }
-        public string ContractType { get; set; }
+        public ListObject ContractType { get; set; }
         public DateTime? EffictiveDateCompanyOutput { get; set; }
         public string Email { get; set; }
-        public int? BusinessUnitId { get; set; }
-        public string BusinessUnit { get; set; }
-        public string Position { get; set; }
-        public List<int?> GroupIds { get; set; }
-        public string GroupNames { get; set; }
+        public ListObject BusinessUnit { get; set; }
+        public ListObject Position { get; set; }
+        public List<ListObject> Groups { get; set; }
         public System.Data.Linq.Binary Picture { get; set; }
         public System.Data.Linq.Binary Passport { get; set; }
         public System.Data.Linq.Binary Signature { get; set; }
         public Individual()
         {
-            this.LanguageIds = new List<int?>();
-            this.GroupIds = new List<int?>();
+            this.Languages = new List<ListObject>();
+            this.Groups = new List<ListObject>();
         }
         public async static Task<Individual> GetById(int? Id)
         {
@@ -53,7 +47,7 @@ namespace RsaCrypto.Classes
                 Individual.GetByIdUri, parameter);
             if (r.success && r.data != null)
             {
-                var l =JsonConvert.DeserializeObject<List<Individual>>(r.data.ToString());
+                var l = JsonConvert.DeserializeObject<List<Individual>>(r.data.ToString());
                 return l.FirstOrDefault();
             }
             return null;
@@ -64,6 +58,25 @@ namespace RsaCrypto.Classes
             var r = await GlobalObjects.ApiCommunication.SendRequestAndDecrypt(ApiCommunicationClass.RequestType.Post, ApiCommunicationClass.EncryptionType.AES,
                 PostUpdateUri, parameter);
             return r.data.ToString();
+        }
+
+        internal Dictionary<string, string> GetFields()
+        {
+            var fields = new Dictionary<string, string>();
+            foreach (var item in typeof(Individual).GetProperties())
+            {
+                string s = null;
+                var v = item.GetValue(this, null);
+                if (v != null)
+                {
+                    if (v.GetType() == typeof(List<ListObject>))
+                        s = string.Join(",", (v as List<ListObject>).Select(x => x.Name));
+                    else
+                        s = v.ToString();
+                }
+                fields.Add(item.Name, s);
+            }
+            return fields;
         }
     }
 }

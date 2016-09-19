@@ -80,8 +80,8 @@ namespace RsaCrypto
 
         private async void btnIndividualPage_Click(object sender, EventArgs e)
         {
-            var ind = await Classes.IndividualClass.GetById(Classes.GlobalClass.UserToken.IndividualId);
-            foreach (var item in ind.Fields)
+            var ind = await Classes.Individual.GetById(Classes.GlobalClass.UserToken.IndividualId);
+            foreach (var item in ind.GetFields())
             {
                 if (item.Key.Contains("Id"))
                     continue;

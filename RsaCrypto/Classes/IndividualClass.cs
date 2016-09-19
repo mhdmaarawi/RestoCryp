@@ -17,7 +17,6 @@ namespace RsaCrypto.Classes
         public IndividualClass(string jsonResponse)
         {
             this.Fields = ApiCommunicationClass.GetFieldsFromJson(jsonResponse);
-
         }
         public async static Task<IndividualClass> GetById(int? Id)
         {
