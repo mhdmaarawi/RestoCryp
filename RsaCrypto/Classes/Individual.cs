@@ -32,9 +32,10 @@ namespace RsaCrypto.Classes
         public ListObject BusinessUnit { get; set; }
         public ListObject Position { get; set; }
         public List<ListObject> Groups { get; set; }
-        public System.Data.Linq.Binary Picture { get; set; }
-        public System.Data.Linq.Binary Passport { get; set; }
-        public System.Data.Linq.Binary Signature { get; set; }
+        public byte[] Picture { get; set; }
+        public byte[] Passport { get; set; }
+        public byte[] Signature { get; set; }
+        public byte[] Image { get; set; }
         public Individual()
         {
             this.Languages = new List<ListObject>();

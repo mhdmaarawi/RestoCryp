@@ -17,28 +17,24 @@ namespace RsaCrypto.Models
         public int? IndividualId { get; set; }
         public int? CompanyId { get; set; }
         public DateTime? NomitatedDate { get; set; }
-        public int? ModeId { get; set; }
-
-        public int? BoardofDirectorsTypeId { get; set; }
-        public string BoardofDirectorsType { get; set; }
-        public int? PositionId { get; set; }
-        public List<int?> BoardTypeIds { get; set; }
-        public string BoardTypeNames { get; set; }
-
+        public ListObject NomintationMode { get; set; }
+        public ListObject BoardofDirectorsType { get; set; }
+        public ListObject Position { get; set; }
+        public List<ListObject> BoardTypes { get; set; }
         public DateTime? RenewalDate { get; set; }
-        public int? Renewal_ModeId { get; set; }
+        public ListObject RenewalMode { get; set; }
         public DateTime? CooperationDate { get; set; }
-        public int? Cooperation_ModeId { get; set; }
-        public DateTime? Term { get; set; }
-        public int? Term_ModeId { get; set; }
-        public DateTime? Ratification { get; set; }
-        public int? Ratification_ModeId { get; set; }
+        public ListObject CooperationMode { get; set; }
+        public DateTime? TermDate { get; set; }
+        public ListObject TermMode { get; set; }
+        public DateTime? RatificationDate { get; set; }
+        public ListObject RatificationMode { get; set; }
         public DateTime? EndDate { get; set; }
-        public int? EndDate_ModeId { get; set; }
+        public ListObject EndMode { get; set; }
         public bool? Illimited { get; set; }
         public OfficershipClass()
         {
-            this.BoardTypeIds = new List<int?>();
+            this.BoardTypes = new List<ListObject>();
         }
 
         internal async static Task<List<OfficershipClass>> GetList()

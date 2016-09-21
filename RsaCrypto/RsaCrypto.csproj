@@ -75,6 +75,7 @@
     <Compile Include="Classes\ListObject.cs" />
     <Compile Include="Classes\LoginClass.cs" />
     <Compile Include="Classes\MyRSAParameters.cs" />
+    <Compile Include="Models\MemberTree.cs" />
     <Compile Include="Models\OfficershipClass.cs" />
     <Compile Include="Classes\SecurityClass.cs" />
     <Compile Include="Classes\SecurityOperation.cs" />

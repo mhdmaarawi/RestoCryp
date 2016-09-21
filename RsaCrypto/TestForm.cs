@@ -17,6 +17,8 @@ namespace RsaCrypto
 {
     public partial class TestForm : Form
     {
+        private Individual ind;
+
         public TestForm()
         {
             InitializeComponent();
@@ -80,7 +82,7 @@ namespace RsaCrypto
 
         private async void btnIndividualPage_Click(object sender, EventArgs e)
         {
-            var ind = await Classes.Individual.GetById(Classes.GlobalClass.UserToken.IndividualId);
+            this.ind = await Classes.Individual.GetById(Classes.GlobalClass.UserToken.IndividualId);
             foreach (var item in ind.GetFields())
             {
                 if (item.Key.Contains("Id"))
@@ -103,7 +105,7 @@ namespace RsaCrypto
             catch (Exception ex)
             {
                 this.txtResult.Text += "---------------------------------------------------------\r\n";
-                this.txtResult.Text += ex.ToString() + "\r\n" ;
+                this.txtResult.Text += ex.ToString() + "\r\n";
                 this.txtResult.Text += "---------------------------------------------------------\r\n";
             }
         }
@@ -152,7 +154,7 @@ namespace RsaCrypto
                 this.txtResult.Text += "Invalid Individual Id\r\n";
                 return;
             }
-            var result = await Classes.LoginClass.Register(usernameEntry.Text, passwordEntry.Text,IndividualId);
+            var result = await Classes.LoginClass.Register(usernameEntry.Text, passwordEntry.Text, IndividualId);
             if (result.success)
             {
                 Classes.Token t = result.data as Classes.Token;
@@ -180,6 +182,41 @@ namespace RsaCrypto
             {
                 this.txtResult.Text += item.ToString() + "\r\n";
             }
+        }
+
+        private void TestForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOpenImage_Click(object sender, EventArgs e)
+        {
+            if (this.ind != null)
+            {
+                var bytes = this.ind.Image;
+                if (bytes != null && bytes.Length > 0)
+                {
+                    System.IO.MemoryStream mem = new System.IO.MemoryStream(bytes);
+                    var img = System.Drawing.Image.FromStream(mem);
+                    Form f = new Form();
+                    f.Controls.Add(new PictureBox() { Dock = DockStyle.Fill, Image = img });
+                    f.ShowDialog();
+                }
+            }
+        }
+
+        private async void btnGetMemberTree_Click(object sender, EventArgs e)
+        {
+            string TreeMemberGetByIdUri = GlobalClass.ServerApiAddress + "MemberTree/GetTree";
+
+            var parameter = "companyId=5";// + companyId;
+            var r = await GlobalObjects.ApiCommunication.SendRequestAndDecrypt(ApiCommunicationClass.RequestType.Get, ApiCommunicationClass.EncryptionType.AES, TreeMemberGetByIdUri, parameter);
+            if (r.success)
+            {
+                var l = JsonConvert.DeserializeObject<MemberTree>(r.data.ToString());
+                this.txtResult.Text += l.GetFullText() ;
+            }
+
         }
     }
 }

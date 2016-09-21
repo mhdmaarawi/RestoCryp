@@ -49,6 +49,8 @@
             this.txtIndividualId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnGetAllOfficership = new System.Windows.Forms.Button();
+            this.btnOpenImage = new System.Windows.Forms.Button();
+            this.btnGetMemberTree = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGetPublicKey
@@ -110,7 +112,7 @@
             // 
             // btnGetObjectList
             // 
-            this.btnGetObjectList.Location = new System.Drawing.Point(12, 146);
+            this.btnGetObjectList.Location = new System.Drawing.Point(12, 175);
             this.btnGetObjectList.Name = "btnGetObjectList";
             this.btnGetObjectList.Size = new System.Drawing.Size(86, 23);
             this.btnGetObjectList.TabIndex = 20;
@@ -137,14 +139,14 @@
             // 
             // txtObjectName
             // 
-            this.txtObjectName.Location = new System.Drawing.Point(104, 148);
+            this.txtObjectName.Location = new System.Drawing.Point(104, 177);
             this.txtObjectName.Name = "txtObjectName";
             this.txtObjectName.Size = new System.Drawing.Size(205, 20);
             this.txtObjectName.TabIndex = 23;
             // 
             // btnUploadFile
             // 
-            this.btnUploadFile.Location = new System.Drawing.Point(11, 176);
+            this.btnUploadFile.Location = new System.Drawing.Point(11, 205);
             this.btnUploadFile.Name = "btnUploadFile";
             this.btnUploadFile.Size = new System.Drawing.Size(87, 23);
             this.btnUploadFile.TabIndex = 24;
@@ -154,21 +156,21 @@
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(104, 178);
+            this.txtFilePath.Location = new System.Drawing.Point(104, 207);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.Size = new System.Drawing.Size(205, 20);
             this.txtFilePath.TabIndex = 25;
             // 
             // txtParamName
             // 
-            this.txtParamName.Location = new System.Drawing.Point(118, 205);
+            this.txtParamName.Location = new System.Drawing.Point(118, 234);
             this.txtParamName.Name = "txtParamName";
             this.txtParamName.Size = new System.Drawing.Size(88, 20);
             this.txtParamName.TabIndex = 26;
             // 
             // txtParamValue
             // 
-            this.txtParamValue.Location = new System.Drawing.Point(212, 205);
+            this.txtParamValue.Location = new System.Drawing.Point(212, 234);
             this.txtParamValue.Name = "txtParamValue";
             this.txtParamValue.Size = new System.Drawing.Size(97, 20);
             this.txtParamValue.TabIndex = 27;
@@ -176,7 +178,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 208);
+            this.label2.Location = new System.Drawing.Point(11, 237);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 28;
@@ -184,7 +186,7 @@
             // 
             // btnGetPositionHeld
             // 
-            this.btnGetPositionHeld.Location = new System.Drawing.Point(167, 231);
+            this.btnGetPositionHeld.Location = new System.Drawing.Point(167, 260);
             this.btnGetPositionHeld.Name = "btnGetPositionHeld";
             this.btnGetPositionHeld.Size = new System.Drawing.Size(142, 23);
             this.btnGetPositionHeld.TabIndex = 29;
@@ -230,7 +232,7 @@
             // 
             // btnGetAllOfficership
             // 
-            this.btnGetAllOfficership.Location = new System.Drawing.Point(11, 231);
+            this.btnGetAllOfficership.Location = new System.Drawing.Point(11, 260);
             this.btnGetAllOfficership.Name = "btnGetAllOfficership";
             this.btnGetAllOfficership.Size = new System.Drawing.Size(149, 23);
             this.btnGetAllOfficership.TabIndex = 33;
@@ -238,11 +240,33 @@
             this.btnGetAllOfficership.UseVisualStyleBackColor = true;
             this.btnGetAllOfficership.Click += new System.EventHandler(this.btnGetAllOfficership_Click);
             // 
+            // btnOpenImage
+            // 
+            this.btnOpenImage.Location = new System.Drawing.Point(11, 145);
+            this.btnOpenImage.Name = "btnOpenImage";
+            this.btnOpenImage.Size = new System.Drawing.Size(146, 23);
+            this.btnOpenImage.TabIndex = 34;
+            this.btnOpenImage.Text = "Open Image";
+            this.btnOpenImage.UseVisualStyleBackColor = true;
+            this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
+            // 
+            // btnGetMemberTree
+            // 
+            this.btnGetMemberTree.Location = new System.Drawing.Point(11, 289);
+            this.btnGetMemberTree.Name = "btnGetMemberTree";
+            this.btnGetMemberTree.Size = new System.Drawing.Size(149, 23);
+            this.btnGetMemberTree.TabIndex = 35;
+            this.btnGetMemberTree.Text = "Get Member Tree";
+            this.btnGetMemberTree.UseVisualStyleBackColor = true;
+            this.btnGetMemberTree.Click += new System.EventHandler(this.btnGetMemberTree_Click);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 372);
+            this.Controls.Add(this.btnGetMemberTree);
+            this.Controls.Add(this.btnOpenImage);
             this.Controls.Add(this.btnGetAllOfficership);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnUpdateIndividual);
@@ -266,6 +290,7 @@
             this.Controls.Add(this.btnLogin);
             this.Name = "TestForm";
             this.Text = "TestForm";
+            this.Load += new System.EventHandler(this.TestForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +319,7 @@
         private System.Windows.Forms.TextBox txtIndividualId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGetAllOfficership;
+        private System.Windows.Forms.Button btnOpenImage;
+        private System.Windows.Forms.Button btnGetMemberTree;
     }
 }
