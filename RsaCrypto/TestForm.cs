@@ -207,15 +207,37 @@ namespace RsaCrypto
 
         private async void btnGetMemberTree_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(this.txtCompanyID.Text))
+                return;
             string TreeMemberGetByIdUri = GlobalClass.ServerApiAddress + "MemberTree/GetTree";
 
-            var parameter = "companyId=5";// + companyId;
+            var parameter = "companyId=" + this.txtCompanyID.Text;
             var r = await GlobalObjects.ApiCommunication.SendRequestAndDecrypt(ApiCommunicationClass.RequestType.Get, ApiCommunicationClass.EncryptionType.AES, TreeMemberGetByIdUri, parameter);
             if (r.success)
             {
                 var l = JsonConvert.DeserializeObject<MemberTree>(r.data.ToString());
                 this.txtResult.Text += l.GetFullText() ;
             }
+
+        }
+
+        private async void btnGetSubsidersTree_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(this.txtCompanyID.Text))
+                return;
+            string TreeMemberGetByIdUri = GlobalClass.ServerApiAddress + "SubsiderTree/GetTree";
+
+            var parameter = "companyId=" + this.txtCompanyID.Text;
+            var r = await GlobalObjects.ApiCommunication.SendRequestAndDecrypt(ApiCommunicationClass.RequestType.Get, ApiCommunicationClass.EncryptionType.AES, TreeMemberGetByIdUri, parameter);
+            if (r.success)
+            {
+                var l = JsonConvert.DeserializeObject<SubsiderTree>(r.data.ToString());
+                this.txtResult.Text += l.GetFullText();
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

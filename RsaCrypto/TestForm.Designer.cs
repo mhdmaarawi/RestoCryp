@@ -51,6 +51,9 @@
             this.btnGetAllOfficership = new System.Windows.Forms.Button();
             this.btnOpenImage = new System.Windows.Forms.Button();
             this.btnGetMemberTree = new System.Windows.Forms.Button();
+            this.btnGetSubsidersTree = new System.Windows.Forms.Button();
+            this.txtCompanyID = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGetPublicKey
@@ -183,6 +186,7 @@
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 28;
             this.label2.Text = "Param Name && Value";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnGetPositionHeld
             // 
@@ -252,7 +256,7 @@
             // 
             // btnGetMemberTree
             // 
-            this.btnGetMemberTree.Location = new System.Drawing.Point(11, 289);
+            this.btnGetMemberTree.Location = new System.Drawing.Point(11, 312);
             this.btnGetMemberTree.Name = "btnGetMemberTree";
             this.btnGetMemberTree.Size = new System.Drawing.Size(149, 23);
             this.btnGetMemberTree.TabIndex = 35;
@@ -260,19 +264,48 @@
             this.btnGetMemberTree.UseVisualStyleBackColor = true;
             this.btnGetMemberTree.Click += new System.EventHandler(this.btnGetMemberTree_Click);
             // 
+            // btnGetSubsidersTree
+            // 
+            this.btnGetSubsidersTree.Location = new System.Drawing.Point(166, 312);
+            this.btnGetSubsidersTree.Name = "btnGetSubsidersTree";
+            this.btnGetSubsidersTree.Size = new System.Drawing.Size(144, 23);
+            this.btnGetSubsidersTree.TabIndex = 35;
+            this.btnGetSubsidersTree.Text = "Get Subsiders Tree";
+            this.btnGetSubsidersTree.UseVisualStyleBackColor = true;
+            this.btnGetSubsidersTree.Click += new System.EventHandler(this.btnGetSubsidersTree_Click);
+            // 
+            // txtCompanyID
+            // 
+            this.txtCompanyID.Location = new System.Drawing.Point(118, 286);
+            this.txtCompanyID.Name = "txtCompanyID";
+            this.txtCompanyID.Size = new System.Drawing.Size(191, 20);
+            this.txtCompanyID.TabIndex = 26;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 289);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Company ID";
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 372);
+            this.Controls.Add(this.btnGetSubsidersTree);
             this.Controls.Add(this.btnGetMemberTree);
             this.Controls.Add(this.btnOpenImage);
             this.Controls.Add(this.btnGetAllOfficership);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnUpdateIndividual);
             this.Controls.Add(this.btnGetPositionHeld);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtParamValue);
+            this.Controls.Add(this.txtCompanyID);
             this.Controls.Add(this.txtParamName);
             this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.btnUploadFile);
@@ -321,5 +354,8 @@
         private System.Windows.Forms.Button btnGetAllOfficership;
         private System.Windows.Forms.Button btnOpenImage;
         private System.Windows.Forms.Button btnGetMemberTree;
+        private System.Windows.Forms.Button btnGetSubsidersTree;
+        private System.Windows.Forms.TextBox txtCompanyID;
+        private System.Windows.Forms.Label label4;
     }
 }
